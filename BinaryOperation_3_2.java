@@ -1,4 +1,7 @@
-package 算术2_0;
+package 习题2_0;
+// 设计二
+// 使用者（如Exercise）必须决定是选择加法运算还是减法运算，不能像之前一样，含糊其辞
+// 因为BinaryOperation是抽象类，不能实例化
 
 import java.util.Random;
 
@@ -23,7 +26,8 @@ public abstract class BinaryOperation_3_2 {
 		value = result;	
 	}
 	
-
+	// 2015-8-3. 只有当参数构成了有效的算式，才能调用
+	// 目前仅支持加法和减法
 	private void unsafeConstructor(int left,int right, char anOperator){
 		left_operand = left;
 		right_operand = right;
@@ -57,7 +61,7 @@ public abstract class BinaryOperation_3_2 {
 	public char getOperator(){return operator;}
 	public int getResult(){return value;}
 
-	public boolean equals (BinaryOperation_3_2 anOperation) {
+	public boolean equals (BinaryOperation_3_2 anOperation) {  // 要使用 getOperator()
 		return 	left_operand == anOperation.getLeftOperand() &
 				right_operand == anOperation.getRightOperand() &
 				operator == anOperation.getOperator();			
